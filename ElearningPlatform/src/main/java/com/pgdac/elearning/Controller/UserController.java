@@ -14,7 +14,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +21,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.pgdac.elearning.Dto.CoursesDto;
@@ -46,11 +44,7 @@ public class UserController {
         @Autowired
     	private JavaMailSender javasender;
         
-        @GetMapping("/user/test")
-        public String test() {
-        	return "Welcome To BackEnd";
-        }
-        
+               
         @PostMapping("/user/signin")
     	public ResponseEntity<?> signIn(@RequestBody Credentials cred) {
     		UserDTO userDto = userService.authenticate(cred);
